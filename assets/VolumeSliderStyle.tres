@@ -1,0 +1,15 @@
+[gd_resource type="Theme" load_steps=4 format=2]
+
+[sub_resource type="StyleBoxLine" id=1]
+color = Color( 0.0862745, 0.439216, 0.458824, 1 )
+
+[sub_resource type="StyleBoxLine" id=2]
+color = Color( 0.0862745, 0.439216, 0.458824, 1 )
+
+[sub_resource type="StyleBoxLine" id=3]
+color = Color( 0.0470588, 0.972549, 0.894118, 1 )
+
+[resource]
+HSlider/styles/grabber_area = SubResource( 1 )
+HSlider/styles/grabber_area_highlight = SubResource( 2 )
+HSlider/styles/slider = SubResource( 3 )
