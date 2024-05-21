@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://sd328ql1dbjg"]
+
+[ext_resource type="Texture2D" uid="uid://cpysynsed0w43" path="res://assets/NPC1 right idle.png" id="1_y6d80"]
+[ext_resource type="Script" path="res://scripts/NPC1.gd" id="2_ix46n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5r57g"]
+atlas = ExtResource("1_y6d80")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lil37"]
+atlas = ExtResource("1_y6d80")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4mbvc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5r57g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lil37")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jol7n"]
+size = Vector2(15, 9)
+
+[node name="NPC1" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+sprite_frames = SubResource("SpriteFrames_4mbvc")
+animation = &"idle"
+frame_progress = 0.0391174
+speed_scale = 0.5
+script = ExtResource("2_ix46n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(-1.5, 11.5)
+shape = SubResource("RectangleShape2D_jol7n")
