@@ -1,13 +1,13 @@
-[gd_resource type="GradientTexture2D" load_steps=2 format=2]
+[gd_resource type="GradientTexture2D" load_steps=2 format=3 uid="uid://bs4040pamxj7l"]
 
-[sub_resource type="Gradient" id=1]
+[sub_resource type="Gradient" id="1"]
 interpolation_mode = 1
-offsets = PoolRealArray( 0.214286, 0.62, 0.651429, 0.674286, 0.685714 )
-colors = PoolColorArray( 0.121569, 0.0745098, 0.184314, 1, 0.223529, 0.113725, 0.290196, 1, 0.462745, 0.254902, 0.588235, 1, 0.462745, 0.254902, 0.588235, 1, 0.894118, 0.337255, 0.768627, 1 )
+offsets = PackedFloat32Array(0.214286, 0.62, 0.651429, 0.674286, 0.685714)
+colors = PackedColorArray(0.121569, 0.0745098, 0.184314, 1, 0.223529, 0.113725, 0.290196, 1, 0.462745, 0.254902, 0.588235, 1, 0.462745, 0.254902, 0.588235, 1, 0.894118, 0.337255, 0.768627, 1)
 
 [resource]
-gradient = SubResource( 1 )
+gradient = SubResource("1")
 width = 1024
 height = 600
-fill_from = Vector2( 1, 0.0318676 )
-fill_to = Vector2( 0.027, 0 )
+fill_from = Vector2(1, 0.0318676)
+fill_to = Vector2(0.027, 0)

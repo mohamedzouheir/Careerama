@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://sd328ql1dbjg"]
+[gd_scene load_steps=8 format=3 uid="uid://sd328ql1dbjg"]
 
 [ext_resource type="Texture2D" uid="uid://cpysynsed0w43" path="res://assets/NPC1 right idle.png" id="1_y6d80"]
 [ext_resource type="Script" path="res://scripts/NPC1.gd" id="2_ix46n"]
@@ -22,23 +22,35 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 3.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jol7n"]
-size = Vector2(15, 9)
+[sub_resource type="CircleShape2D" id="CircleShape2D_6eq1v"]
+radius = 8.06226
 
-[node name="NPC1" type="Node2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_gdifd"]
+radius = 29.0172
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
-sprite_frames = SubResource("SpriteFrames_4mbvc")
-animation = &"idle"
-frame_progress = 0.0391174
-speed_scale = 0.5
+[node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("2_ix46n")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(-1.5, 11.5)
-shape = SubResource("RectangleShape2D_jol7n")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+light_mask = 7
+visibility_layer = 7
+sprite_frames = SubResource("SpriteFrames_4mbvc")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 9)
+shape = SubResource("CircleShape2D_6eq1v")
+
+[node name="chat_detection_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="chat_detection_area"]
+shape = SubResource("CircleShape2D_gdifd")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="body_entered" from="chat_detection_area" to="." method="_on_chat_detection_area_body_entered"]
+[connection signal="body_exited" from="chat_detection_area" to="." method="_on_chat_detection_area_body_exited"]
